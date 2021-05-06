@@ -1,0 +1,4 @@
+node_modules
+*.p12
+simulaMod.ts
+teste.ts
