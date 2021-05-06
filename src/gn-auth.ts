@@ -1,9 +1,8 @@
 /* eslint-disable import/extensions */
 /* eslint-disable import/no-unresolved */
-import fs from 'fs';
+import fs, { PathLike } from 'fs';
 import axios from 'axios';
 import https from 'https';
-import { PathLike } from 'node:fs';
 import sdkPackage from '../package.json';
 import { CredentialsInterface } from './interfaces/credentials.interface';
 

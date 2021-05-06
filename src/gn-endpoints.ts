@@ -183,7 +183,7 @@ class GnEndpoints {
         };
         if (this.options.validateMtls) {
             headers['x-skip-mtls-checking'] = false;
-        }else{
+        } else {
             headers['x-skip-mtls-checking'] = true;
         }
 
