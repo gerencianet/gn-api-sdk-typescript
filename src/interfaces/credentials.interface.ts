@@ -1,4 +1,4 @@
-import { PathLike } from 'node:fs';
+import { PathLike } from 'fs';
 
 export interface CredentialsInterface {
     clientId: string;
