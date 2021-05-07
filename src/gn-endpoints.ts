@@ -42,7 +42,7 @@ class GnEndpoints {
                     passphrase: '',
                 });
             } catch (error) {
-                throw new Error('FALHA AO LER O CERTIFICADO');
+                throw new Error(`FALHA AO LER O CERTIFICADO: \n${error}`);
             }
             this.endpoint = this.constants.ENDPOINTS.PIX[name];
             this.options.baseUrl = this.options.sandbox
@@ -121,31 +121,35 @@ class GnEndpoints {
         httpResponse: { statusCode: number },
         httpResponseBody: any
     ) {
-        const self = this;
-        const response = self.getResponse(httpResponse, httpResponseBody);
+        const response = this.getResponse(httpResponse, httpResponseBody);
 
         if (err) {
-            self.defer.reject(err);
+            this.defer.reject(err);
         } else if (httpResponse.statusCode === 401) {
-            self.getAccessToken().then(self.directReq.bind(self));
+            this.getAccessToken().then(this.directReq.bind(this));
         } else if (httpResponse.statusCode !== 200) {
-            self.defer.reject(response);
+            this.defer.reject(response);
         } else {
-            self.defer.resolve(response);
+            this.defer.resolve(response);
         }
     }
 
     private getParams(route: any): Object {
-        const self = this;
         // eslint-disable-next-line no-useless-escape
         const regex = /\:(\w+)/g;
         let query = '';
         const placeholders = route.match(regex) || [];
         const params: any = {};
 
-        self.params.forEach((value: any, index: any) => {
-            params[Object.keys(value)[index]] = value[Object.keys(value)[index]];
-        });
+        if (this.params) {
+            this.params.forEach((obj: any) => {
+                if (obj) {
+                    Object.entries(obj).forEach((entrie: any) => {
+                        params[entrie[0]] = entrie[1];
+                    });
+                }
+            });
+        }
 
         const getVariables = () => {
             return placeholders.map((item: any) => {
