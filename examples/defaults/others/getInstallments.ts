@@ -4,7 +4,7 @@ import Gerencianet from 'gn-api-sdk-typescript';
 import options from '../../config';
 
 const params = {
-    type: 'visa',
+    brand: 'visa',
     total: 5000,
 };
 
