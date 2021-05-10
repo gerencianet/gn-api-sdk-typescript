@@ -5,10 +5,10 @@ import options from '../../config';
 
 const params = {
     id: 1008,
+    parcel: 1
 };
 
 const body = {
-    parcel: 1,
     expire_at: '2020-12-12',
 };
 
