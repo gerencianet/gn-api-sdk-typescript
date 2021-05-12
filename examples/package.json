@@ -1,0 +1,5 @@
+{
+    "dependencies": {
+        "gn-api-sdk-typescript": "https://github.com/gerencianet/gn-api-sdk-typescript.git"
+    }
+}

@@ -1,0 +1,46 @@
+{
+  "name": "gn-api-sdk-typescript",
+  "version": "1.0.0",
+  "description": "Module for integration with Gerencianet API\"",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gerencianet - Consultoria Tecnica | João Vitor Oliveira",
+  "license": "MIT",
+  "repository": "gerencianet/gn-api-sdk-typescript",
+  "homepage": "https://github.com/gerencianet/gn-api-sdk-typescript",
+  "keywords": [
+    "gerencianet",
+    "pagamentos",
+    "payment",
+    "sdk",
+    "integração",
+    "integration",
+    "api",
+    "bank slip",
+    "boleto bancario",
+    "credit card",
+    "cartao de credito",
+    "pix"
+  ],
+  "devDependencies": {
+    "@types/node": "^15.0.1",
+    "@types/q": "^1.5.4",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "eslint": "^7.25.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.2.1",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "fs": "*",
+    "q": "^1.5.1"
+  }
+}
