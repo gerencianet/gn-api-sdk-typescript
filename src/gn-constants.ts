@@ -176,7 +176,7 @@ export = {
             },
             deletePlan: {
                 route: '/plan/:id',
-                method: 'del',
+                method: 'delete',
             },
             createSubscription: {
                 route: '/plan/:id/subscription',
