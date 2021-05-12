@@ -56,7 +56,7 @@ export = {
                 method: 'get',
             },
             pixConfigWebhook: {
-                route: '/v2​/webhook/:chave',
+                route: '/v2/webhook/:chave',
                 method: 'put',
             },
             pixDetailWebhook: {
