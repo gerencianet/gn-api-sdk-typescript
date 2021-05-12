@@ -8,6 +8,8 @@
   },
   "author": "Gerencianet - Consultoria Tecnica | João Vitor Oliveira",
   "license": "MIT",
+  "repository": "gerencianet/gn-api-sdk-typescript",
+  "homepage": "https://github.com/gerencianet/gn-api-sdk-typescript",
   "keywords": [
     "gerencianet",
     "pagamentos",
