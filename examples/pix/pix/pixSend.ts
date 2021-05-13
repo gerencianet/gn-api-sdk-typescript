@@ -15,4 +15,4 @@ const body = {
 
 const gerencianet = Gerencianet(options);
 
-gerencianet.pixSend(body).then(console.log).catch(console.log).done();
+gerencianet.pixSend(null, body).then(console.log).catch(console.log).done();
