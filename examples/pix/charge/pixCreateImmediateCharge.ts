@@ -14,7 +14,7 @@ const body = {
     valor: {
         original: '123.45',
     },
-    chave: '+5522999486347', // Informe sua chave Pix cadastrada na Gerencianet
+    chave: 'SUACHAVEPIX', // Informe sua chave Pix cadastrada na Gerencianet
     infoAdicionais: [
         {
             nome: 'Pagamento em',
