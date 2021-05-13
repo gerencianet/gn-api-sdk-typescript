@@ -1,10 +1,13 @@
 {
   "name": "gn-api-sdk-typescript",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Module for integration with Gerencianet API\"",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npx tsc -p ./tsconfig.json",
+    "prepare": "npm run build",
+    "postversion": "git push --tags"
   },
   "author": "Gerencianet - Consultoria Tecnica | João Vitor Oliveira",
   "license": "MIT",
