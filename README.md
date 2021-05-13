@@ -21,7 +21,7 @@ import Gerencianet from 'gn-api-sdk-typescript';
 Insira suas credenciais e defina se deseja usar o sandbox ou não.
 Você também pode usar o arquivo [examples/config.ts](examples/config.ts) de modelo.
 ```typescript
-module.exports = {
+export = {
 	// PRODUÇÃO = false
 	// HOMOLOGAÇÃO = true
 	sandbox: false,
@@ -78,7 +78,7 @@ $ npm install
 Defina suas credenciais em config.ts:
 
 ```typescript
-module.exports = {
+export = {
 	// PRODUÇÃO = false
 	// HOMOLOGAÇÃO = true
 	sandbox: false,
