@@ -57,80 +57,53 @@ class GnEndpoints {
         this.body = body;
         this.params = [params];
 
-        if (!this.accessToken) {
-            this.getAccessToken().then(this.directReq.bind(this));
-        } else {
-            this.withTokenReq.call(this);
-        }
-
+        this.getAccessToken().then(this.directReq.bind(this));
         return this.defer.promise;
     }
 
     private getAccessToken(): Promise<any> {
+        const self = this;
         const gnAuth = new GnAuth(this.options, this.constants);
         return gnAuth
             .getAccessToken()
             .then((response) => {
-                this.accessToken = response.access_token;
-                return this.accessToken;
+                self.accessToken = response.access_token;
+                return response.access_token;
             })
             .catch((err) => {
                 return err;
             });
     }
 
-    private getResponse(response: any, body: any) {
-        return this.options.rawResponse ? response : body;
-    }
-
-    private req() {
+    private async req(callback: any) {
         const req: any = this.getParams.call(this, this.endpoint.route);
         req.method = this.endpoint.method;
         axios(req)
             .then((res) => {
-                console.log(res.data);
+                callback(res);
             })
             .catch((error) => {
-                console.log(error.response.data);
+                callback(error);
             });
     }
 
     private directReq() {
-        this.directReqCallback.bind(this);
-        this.req();
+        this.req(this.directReqCallback.bind(this));
     }
 
-    private directReqCallback(err: any, httpResponse: { statusCode: number }, bodyResponse: any) {
-        const response = this.getResponse(httpResponse, bodyResponse);
-
-        if (err) {
-            this.defer.reject(err);
-        } else if (httpResponse.statusCode !== 200) {
-            this.defer.reject(response);
-        } else {
-            this.defer.resolve(response);
-        }
-    }
-
-    private withTokenReq() {
-        this.withTokenReqCallback.bind(this);
-    }
-
-    private withTokenReqCallback(
-        err: any,
-        httpResponse: { statusCode: number },
-        httpResponseBody: any
-    ) {
-        const response = this.getResponse(httpResponse, httpResponseBody);
-
-        if (err) {
-            this.defer.reject(err);
-        } else if (httpResponse.statusCode === 401) {
-            this.getAccessToken().then(this.directReq.bind(this));
-        } else if (httpResponse.statusCode !== 200) {
-            this.defer.reject(response);
-        } else {
-            this.defer.resolve(response);
+    private directReqCallback(rawResponse: any) {
+        if (rawResponse.data) {
+            if (rawResponse.status < 300) {
+                if (rawResponse.data.data) {
+                    this.defer.resolve(rawResponse.data.data);
+                } else {
+                    this.defer.resolve(rawResponse.data);
+                }
+            } else {
+                this.defer.reject(rawResponse.data);
+            }
+        } else if (rawResponse.response && rawResponse.response.data) {
+            this.defer.reject(rawResponse.response.data);
         }
     }
 
@@ -145,6 +118,7 @@ class GnEndpoints {
             this.params.forEach((obj: any) => {
                 if (obj) {
                     Object.entries(obj).forEach((entrie: any) => {
+                        // eslint-disable-next-line prefer-destructuring
                         params[entrie[0]] = entrie[1];
                     });
                 }

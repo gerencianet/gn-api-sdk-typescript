@@ -78,7 +78,7 @@ class GnAuth {
                 return res.data;
             })
             .catch((error) => {
-                console.error(error);
+                return error;
             });
 
         return response;
