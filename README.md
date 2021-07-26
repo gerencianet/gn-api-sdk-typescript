@@ -22,22 +22,12 @@ Insira suas credenciais e defina se deseja usar o sandbox ou não.
 Você também pode usar o arquivo [examples/config.ts](examples/config.ts) de modelo.
 ```typescript
 export = {
-	// PRODUÇÃO = false
-	// HOMOLOGAÇÃO = true
-	sandbox: false,
-
-	// CREDENCIAIS DE PRODUÇÃO
-	clientIdProducao: '',
-	clientSecretProducao: '',
-	pathCertProducao: '',
-
-	// CREDENCIAIS DE HOMOLOGAÇÃO
-	clientIdHomologacao: '',
-	clientSecretHomologacao: '',
-	pathCertHomologacao: '',
-
-	// VALIDAR MTLS?
-	validateMtls: false,
+    // PRODUÇÃO = false
+    // HOMOLOGAÇÃO = true
+    sandbox: false,
+    client_id: 'seuClientId',
+    client_secret: 'seuClientSecret',
+    pix_cert: 'caminhoAteOCertificadoPix',
 };
 ```
 
@@ -60,9 +50,13 @@ var body = {
 
 gerencianet
   .createCharge({}, body)
-  .then(console.log)
-  .catch(console.log)
-  .done();
+  .then((resposta: any) => {
+        console.log(resposta);
+    })
+    .catch((error: any) => {
+        console.log(error);
+    })
+    .done();
 ```
 
 ## Exemplos
@@ -79,22 +73,12 @@ Defina suas credenciais em config.ts:
 
 ```typescript
 export = {
-	// PRODUÇÃO = false
-	// HOMOLOGAÇÃO = true
-	sandbox: false,
-
-	// CREDENCIAIS DE PRODUÇÃO
-	clientIdProducao: '',
-	clientSecretProducao: '',
-	pathCertProducao: '',
-
-	// CREDENCIAIS DE HOMOLOGAÇÃO
-	clientIdHomologacao: '',
-	clientSecretHomologacao: '',
-	pathCertHomologacao: '',
-
-	// VALIDAR MTLS?
-	validateMtls: false,
+    // PRODUÇÃO = false
+    // HOMOLOGAÇÃO = true
+    sandbox: false,
+    client_id: 'seuClientId',
+    client_secret: 'seuClientSecret',
+    pix_cert: 'caminhoAteOCertificadoPix',
 };
 ```
 
