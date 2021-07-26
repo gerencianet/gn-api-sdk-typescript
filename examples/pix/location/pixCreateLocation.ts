@@ -9,4 +9,12 @@ const body = {
 
 const gerencianet = Gerencianet(options);
 
-gerencianet.pixCreateLocation([], body).then(console.log).catch(console.log).done();
+gerencianet
+    .pixCreateLocation([], body)
+    .then((resposta: any) => {
+        console.log(resposta);
+    })
+    .catch((error: any) => {
+        console.log(error);
+    })
+    .done();

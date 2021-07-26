@@ -10,4 +10,12 @@ const params = {
 
 const gerencianet = Gerencianet(options);
 
-gerencianet.gnDeleteEvp(params).then(console.log).catch(console.log).done();
+gerencianet
+    .gnDeleteEvp(params)
+    .then((resposta: any) => {
+        console.log(resposta);
+    })
+    .catch((error: any) => {
+        console.log(error);
+    })
+    .done();

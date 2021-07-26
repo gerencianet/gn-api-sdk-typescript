@@ -55,4 +55,10 @@ const body = {
 
 const gerencianet = Gerencianet(options);
 
-gerencianet.oneStep([], body).then(console.log).catch(console.log).done();
+gerencianet.oneStep([], body).then((resposta: any) => {
+        console.log(resposta);
+    })
+    .catch((error: any) => {
+        console.log(error);
+    })
+    .done();

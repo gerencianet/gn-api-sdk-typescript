@@ -9,4 +9,12 @@ const params = {
 
 const gerencianet = Gerencianet(options);
 
-gerencianet.pixDetailCharge(params).then(console.log).catch(console.log).done();
+gerencianet
+    .pixDetailCharge(params)
+    .then((resposta: any) => {
+        console.log(resposta);
+    })
+    .catch((error: any) => {
+        console.log(error);
+    })
+    .done();

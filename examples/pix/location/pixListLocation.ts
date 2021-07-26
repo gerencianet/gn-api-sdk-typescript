@@ -10,4 +10,12 @@ const params = {
 
 const gerencianet = Gerencianet(options);
 
-gerencianet.pixListLocation(params).then(console.log).catch(console.log).done();
+gerencianet
+    .pixListLocation(params)
+    .then((resposta: any) => {
+        console.log(resposta);
+    })
+    .catch((error: any) => {
+        console.log(error);
+    })
+    .done();

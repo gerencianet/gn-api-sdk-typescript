@@ -13,4 +13,12 @@ const body = {
 
 const gerencianet = Gerencianet(options);
 
-gerencianet.createChargeHistory(params, body).then(console.log).catch(console.log).done();
+gerencianet
+    .createChargeHistory(params, body)
+    .then((resposta: any) => {
+        console.log(resposta);
+    })
+    .catch((error: any) => {
+        console.log(error);
+    })
+    .done();

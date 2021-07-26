@@ -14,4 +14,12 @@ const body = {
 
 const gerencianet = Gerencianet(options);
 
-gerencianet.resendParcel(params, body).then(console.log).catch(console.log).done();
+gerencianet
+    .resendParcel(params, body)
+    .then((resposta: any) => {
+        console.log(resposta);
+    })
+    .catch((error: any) => {
+        console.log(error);
+    })
+    .done();

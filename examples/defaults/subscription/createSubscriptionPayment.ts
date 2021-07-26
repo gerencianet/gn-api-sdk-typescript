@@ -32,4 +32,10 @@ const body = {
 
 const gerencianet = Gerencianet(options);
 
-gerencianet.paySubscription(params, body).then(console.log).catch(console.log).done();
+gerencianet.paySubscription(params, body).then((resposta: any) => {
+        console.log(resposta);
+    })
+    .catch((error: any) => {
+        console.log(error);
+    })
+    .done();

@@ -9,4 +9,12 @@ const params = {
 
 const gerencianet = Gerencianet(options);
 
-gerencianet.detailCarnet(params).then(console.log).catch(console.log).done();
+gerencianet
+    .detailCarnet(params)
+    .then((resposta: any) => {
+        console.log(resposta);
+    })
+    .catch((error: any) => {
+        console.log(error);
+    })
+    .done();

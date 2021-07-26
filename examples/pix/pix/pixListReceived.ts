@@ -10,4 +10,12 @@ const params = {
 
 const gerencianet = Gerencianet(options);
 
-gerencianet.pixListReceived(params).then(console.log).catch(console.log).done();
+gerencianet
+    .pixListReceived(params)
+    .then((resposta: any) => {
+        console.log(resposta);
+    })
+    .catch((error: any) => {
+        console.log(error);
+    })
+    .done();

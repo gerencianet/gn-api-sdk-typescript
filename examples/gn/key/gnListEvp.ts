@@ -6,4 +6,12 @@ import options from '../../config';
 
 const gerencianet = Gerencianet(options);
 
-gerencianet.gnListEvp().then(console.log).catch(console.log).done();
+gerencianet
+    .gnListEvp()
+    .then((resposta: any) => {
+        console.log(resposta);
+    })
+    .catch((error: any) => {
+        console.log(error);
+    })
+    .done();

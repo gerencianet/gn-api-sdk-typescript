@@ -5,4 +5,12 @@ import options from '../../config';
 
 const gerencianet = Gerencianet(options);
 
-gerencianet.gnDetailBalance().then(console.log).catch(console.log).done();
+gerencianet
+    .gnDetailBalance()
+    .then((resposta: any) => {
+        console.log(resposta);
+    })
+    .catch((error: any) => {
+        console.log(error);
+    })
+    .done();

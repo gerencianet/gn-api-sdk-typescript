@@ -18,4 +18,12 @@ const body = {
 
 const gerencianet = Gerencianet(options);
 
-gerencianet.chargeLink(params, body).then(console.log).catch(console.log).done();
+gerencianet
+    .chargeLink(params, body)
+    .then((resposta: any) => {
+        console.log(resposta);
+    })
+    .catch((error: any) => {
+        console.log(error);
+    })
+    .done();
