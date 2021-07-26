@@ -1,13 +1,9 @@
+/* eslint-disable camelcase */
 import { PathLike } from 'fs';
 
 export interface ConfigInterface {
-    clientIdProducao: string;
-    clientSecretProducao: string;
-    clientIdHomologacao: string;
-    clientSecretHomologacao: string;
-    pathCertProducao: PathLike;
-    pathCertHomologacao: PathLike;
+    client_id: string;
+    client_secret: string;
+    pix_cert: PathLike;
     sandbox: boolean;
-    partnerToken?: string;
-    validateMtls?: boolean;
 }

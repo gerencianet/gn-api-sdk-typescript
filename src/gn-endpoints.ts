@@ -159,15 +159,8 @@ class GnEndpoints {
             'Content-Type': 'application/json',
             authorization: `Bearer ${this.accessToken}`,
         };
-        if (this.options.validateMtls) {
-            headers['x-skip-mtls-checking'] = false;
-        } else {
-            headers['x-skip-mtls-checking'] = true;
-        }
 
-        if (this.options.partnerToken) {
-            headers['partner-token'] = this.options.partnerToken;
-        }
+        headers['x-skip-mtls-checking'] = !this.options.validateMtls;
 
         const req: any = {
             url: [this.options.baseUrl, route, query].join(''),
