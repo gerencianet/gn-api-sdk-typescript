@@ -6,4 +6,5 @@ export interface ConfigInterface {
     client_secret: string;
     pix_cert: PathLike;
     sandbox: boolean;
+    partner_token?: string;
 }

@@ -162,6 +162,10 @@ class GnEndpoints {
 
         headers['x-skip-mtls-checking'] = !this.options.validateMtls;
 
+        if (this.options.partnerToken) {
+            headers['partner-token'] = this.options.partnerToken;
+        }
+
         const req: any = {
             url: [this.options.baseUrl, route, query].join(''),
             headers,

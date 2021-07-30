@@ -11,5 +11,10 @@ export = (options: ConfigInterface) => {
         pathCert: options.pix_cert,
         sandbox: options.sandbox,
     };
+
+    if (options.partner_token) {
+        credentials.partnerToken = options.partner_token;
+    }
+
     return new GnSdk(credentials);
 };
