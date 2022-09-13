@@ -3,8 +3,8 @@ import { PathLike } from 'fs';
 export interface CredentialsInterface {
     clientId: string;
     clientSecret: string;
-    pathCert: PathLike;
     sandbox: boolean;
+    pathCert?: PathLike;
     partnerToken?: string;
     rawResponse?: any;
     baseUrl?: string;
