@@ -20,14 +20,15 @@ import Gerencianet from 'gn-api-sdk-typescript';
 
 Insira suas credenciais e defina se deseja usar o sandbox ou não.
 Você também pode usar o arquivo [examples/config.ts](examples/config.ts) de modelo.
+
 ```typescript
 export = {
-    // PRODUÇÃO = false
-    // HOMOLOGAÇÃO = true
-    sandbox: false,
-    client_id: 'seuClientId',
-    client_secret: 'seuClientSecret',
-    pix_cert: 'caminhoAteOCertificadoPix',
+	// PRODUÇÃO = false
+	// HOMOLOGAÇÃO = true
+	sandbox: false,
+	client_id: 'seuclient_id',
+	client_secret: 'seuclient_secret',
+	certificate: 'caminhoAteOCertificadoPix',
 };
 ```
 
@@ -41,22 +42,24 @@ Crie uma cobrança:
 
 ```typescript
 var body = {
-  items: [{
-    name: 'Product A',
-    value: 1000,
-    amount: 2
-  }]
-}
+	items: [
+		{
+			name: 'Product A',
+			value: 1000,
+			amount: 2,
+		},
+	],
+};
 
 gerencianet
-  .createCharge({}, body)
-  .then((resposta: any) => {
-        console.log(resposta);
-    })
-    .catch((error: any) => {
-        console.log(error);
-    })
-    .done();
+	.createCharge({}, body)
+	.then((resposta: any) => {
+		console.log(resposta);
+	})
+	.catch((error: Promise<any>) => {
+		console.log(error);
+	})
+	.done();
 ```
 
 ## Exemplos
@@ -73,12 +76,12 @@ Defina suas credenciais em config.ts:
 
 ```typescript
 export = {
-    // PRODUÇÃO = false
-    // HOMOLOGAÇÃO = true
-    sandbox: false,
-    client_id: 'seuClientId',
-    client_secret: 'seuClientSecret',
-    pix_cert: 'caminhoAteOCertificadoPix',
+	// PRODUÇÃO = false
+	// HOMOLOGAÇÃO = true
+	sandbox: false,
+	client_id: 'seuclient_id',
+	client_secret: 'seuclient_secret',
+	certificate: 'caminhoAteOCertificadoPix',
 };
 ```
 
@@ -87,7 +90,6 @@ Em seguida, execute o exemplo que você deseja:
 ```bash
 $ ts-node createCharge.ts
 ```
-
 
 ## Documentação
 

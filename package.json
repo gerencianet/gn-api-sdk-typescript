@@ -1,13 +1,15 @@
 {
   "name": "gn-api-sdk-typescript",
-  "version": "1.0.7",
+  "version": "2.0.0",
   "description": "Module for integration with Gerencianet API\"",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "npx tsc -p ./tsconfig.json",
     "prepare": "npm run build",
-    "postversion": "git push --tags"
+    "postversion": "git push --tags",
+    "test": "./node_modules/.bin/jest",
+    "test-cov": "./node_modules/.bin/jest --coverage"
   },
   "author": "Gerencianet - Consultoria Tecnica | Palloma Brito | João Vitor Oliveira",
   "license": "MIT",
@@ -32,8 +34,8 @@
     "pix"
   ],
   "devDependencies": {
-    "@types/node": "^15.0.1",
-    "@types/q": "^1.5.4",
+    "@types/jest": "^29.2.4",
+    "@types/node": "^15.14.9",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "eslint": "^7.25.0",
@@ -41,13 +43,14 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.4.0",
+    "jest": "^29.3.1",
     "prettier": "^2.2.1",
+    "ts-jest": "^29.0.3",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4"
   },
   "dependencies": {
-    "axios": "^0.21.1",
-    "fs": "*",
-    "q": "^1.5.1"
+    "axios": "^1.2.1",
+    "fs": "*"
   }
 }

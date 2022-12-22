@@ -2,3 +2,8 @@ node_modules
 *.p12
 simulaMod.ts
 teste.ts
+npm-debug.log
+coverage/
+.idea/
+examples/open-accounts/
+examples/pix/split/

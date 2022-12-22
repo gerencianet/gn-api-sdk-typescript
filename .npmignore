@@ -5,3 +5,4 @@
 package.json
 README.md
 tsconfig.json
+jest.config.js
