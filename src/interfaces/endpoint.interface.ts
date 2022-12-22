@@ -1,4 +1,4 @@
 export interface EndpointInterface {
-    route: string;
-    method: string;
+	route: string;
+	method: string;
 }
