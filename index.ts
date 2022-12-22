@@ -1,20 +1,40 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable import/extensions */
-/* eslint-disable import/no-unresolved */
-import GnSdk from './src/gn-sdk';
-import { ConfigInterface } from './src/interfaces/config.interface';
-import { CredentialsInterface } from './src/interfaces/credentials.interface';
+import Endpoints from './src/endpoints';
+import constants from './src/constants';
+import { GnConfig } from './src/interfaces/gnConfig.interface';
+import { GnCredentials } from './src/interfaces/gnCredentials.interface';
 
-export = (options: ConfigInterface) => {
-    const credentials: CredentialsInterface = {
-        clientId: options.client_id,
-        clientSecret: options.client_secret,
-        pathCert: options.pix_cert,
-        sandbox: options.sandbox,
-    };
+class Gerencianet {
+	// eslint-disable-next-line no-undef
+	[index: string]: any;
 
-    if (options.partner_token) {
-        credentials.partnerToken = options.partner_token;
-    }
+	constructor(options: GnCredentials) {
+		if (options.pathCert || options.pix_cert) {
+			options.certificate = options.pathCert || options.pix_cert;
+		}
 
-    return new GnSdk(credentials);
-};
+		const credentials: GnConfig = {
+			client_id: options.client_id,
+			client_secret: options.client_secret,
+			certificate: options.certificate,
+			sandbox: options.sandbox,
+		};
+
+		const methods = {};
+		Object.keys(constants.APIS).forEach((endpoint) => {
+			const key = endpoint as keyof typeof constants.APIS;
+			Object.assign(methods, constants.APIS[key].ENDPOINTS);
+		});
+
+		Object.keys(methods).forEach((api) => {
+			this[api] = (params: any, body: any) => {
+				const endpoints = new Endpoints(credentials, constants);
+				return endpoints.run(api, params, body);
+			};
+		});
+	}
+}
+
+export default Gerencianet;
+export { GnCredentials };
