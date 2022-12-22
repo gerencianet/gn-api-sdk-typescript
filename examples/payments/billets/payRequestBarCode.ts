@@ -2,19 +2,20 @@
 import Gerencianet from 'gn-api-sdk-typescript';
 import options from '../../credentials';
 
-const body = {
-	valor: '7.89',
-};
-
-const params = {
-	e2eId: 'E18236120202104191813s0326120V4K',
-	id: '101',
-};
-
 const gerencianet = new Gerencianet(options);
 
+const params = {
+	codBarras: '',
+};
+
+const body = {
+	valor: 0,
+	dataPagamento: '2022-03-10',
+	descricao: 'Pagamento de boleto, teste API Pagamentos',
+};
+
 gerencianet
-	.pixDevolution(params, body)
+	.payRequestBarCode(params, body)
 	.then((resposta: Promise<any>) => {
 		console.log(resposta);
 	})

@@ -2,19 +2,29 @@
 import Gerencianet from 'gn-api-sdk-typescript';
 import options from '../../credentials';
 
-const body = {
-	valor: '7.89',
+const params = {
+	id: 0,
 };
 
-const params = {
-	e2eId: 'E18236120202104191813s0326120V4K',
-	id: '101',
+const body = {
+	payment: {
+		banking_billet: {
+			expire_at: '2023-12-01',
+			customer: {
+				name: 'Gorbadoc Oldbuck',
+				email: 'oldbuck@gerencianet.com.br',
+				cpf: '94271564656',
+				birth: '1977-01-15',
+				phone_number: '5144916523',
+			},
+		},
+	},
 };
 
 const gerencianet = new Gerencianet(options);
 
 gerencianet
-	.pixDevolution(params, body)
+	.definePayMethod(params, body)
 	.then((resposta: Promise<any>) => {
 		console.log(resposta);
 	})

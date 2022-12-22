@@ -2,19 +2,15 @@
 import Gerencianet from 'gn-api-sdk-typescript';
 import options from '../../credentials';
 
-const body = {
-	valor: '7.89',
-};
-
 const params = {
-	e2eId: 'E18236120202104191813s0326120V4K',
-	id: '101',
+	inicio: '2023-01-22T16:01:35Z',
+	fim: '2023-11-30T20:10:00Z',
 };
 
 const gerencianet = new Gerencianet(options);
 
 gerencianet
-	.pixDevolution(params, body)
+	.pixListDueCharges(params)
 	.then((resposta: Promise<any>) => {
 		console.log(resposta);
 	})

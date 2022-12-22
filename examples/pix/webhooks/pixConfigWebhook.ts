@@ -2,19 +2,20 @@
 import Gerencianet from 'gn-api-sdk-typescript';
 import options from '../../credentials';
 
+options.validateMtls = false;
+
 const body = {
-	valor: '7.89',
+	webhookUrl: 'https://exemplo-pix/webhook',
 };
 
 const params = {
-	e2eId: 'E18236120202104191813s0326120V4K',
-	id: '101',
+	chave: 'SUACHAVEPIX',
 };
 
 const gerencianet = new Gerencianet(options);
 
 gerencianet
-	.pixDevolution(params, body)
+	.pixConfigWebhook(params, body)
 	.then((resposta: Promise<any>) => {
 		console.log(resposta);
 	})

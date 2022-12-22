@@ -2,19 +2,24 @@
 import Gerencianet from 'gn-api-sdk-typescript';
 import options from '../../credentials';
 
-const body = {
-	valor: '7.89',
+const params = {
+	idEnvio: '01',
 };
 
-const params = {
-	e2eId: 'E18236120202104191813s0326120V4K',
-	id: '101',
+const body = {
+	valor: '12.34',
+	pagador: {
+		chave: 'SUACHAVEPIX',
+	},
+	favorecido: {
+		chave: 'ChavePixDeDestino',
+	},
 };
 
 const gerencianet = new Gerencianet(options);
 
 gerencianet
-	.pixDevolution(params, body)
+	.pixSend(params, body)
 	.then((resposta: Promise<any>) => {
 		console.log(resposta);
 	})

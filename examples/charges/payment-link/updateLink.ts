@@ -2,19 +2,23 @@
 import Gerencianet from 'gn-api-sdk-typescript';
 import options from '../../credentials';
 
-const body = {
-	valor: '7.89',
+const params = {
+	id: 0,
 };
 
-const params = {
-	e2eId: 'E18236120202104191813s0326120V4K',
-	id: '101',
+const body = {
+	billet_discount: 0,
+	card_discount: 0,
+	message: '',
+	expire_at: '2024-12-01',
+	request_delivery_address: false,
+	payment_method: 'all',
 };
 
 const gerencianet = new Gerencianet(options);
 
 gerencianet
-	.pixDevolution(params, body)
+	.updateChargeLink(params, body)
 	.then((resposta: Promise<any>) => {
 		console.log(resposta);
 	})

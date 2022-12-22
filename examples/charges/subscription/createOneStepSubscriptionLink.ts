@@ -2,19 +2,29 @@
 import Gerencianet from 'gn-api-sdk-typescript';
 import options from '../../credentials';
 
-const body = {
-	valor: '7.89',
+const params = {
+	id: 0,
 };
 
-const params = {
-	e2eId: 'E18236120202104191813s0326120V4K',
-	id: '101',
+const body = {
+	items: [
+		{
+			name: 'Product One',
+			value: 600,
+			amount: 1,
+		},
+	],
+	settings: {
+		payment_method: 'all',
+		expire_at: '2022-12-15',
+		request_delivery_address: false,
+	},
 };
 
 const gerencianet = new Gerencianet(options);
 
 gerencianet
-	.pixDevolution(params, body)
+	.oneStepSubscriptionLink(params, body)
 	.then((resposta: Promise<any>) => {
 		console.log(resposta);
 	})

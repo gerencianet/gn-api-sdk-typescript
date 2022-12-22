@@ -3,18 +3,29 @@ import Gerencianet from 'gn-api-sdk-typescript';
 import options from '../../credentials';
 
 const body = {
-	valor: '7.89',
-};
-
-const params = {
-	e2eId: 'E18236120202104191813s0326120V4K',
-	id: '101',
+	items: [
+		{
+			name: 'Carnet Item 1',
+			value: 1000,
+			amount: 2,
+		},
+	],
+	customer: {
+		name: 'Gorbadoc Oldbuck',
+		email: 'oldbuck@gerencianet.com.br',
+		cpf: '94271564656',
+		birth: '1977-01-15',
+		phone_number: '5144916523',
+	},
+	repeats: 12,
+	split_items: false,
+	expire_at: '2023-01-01',
 };
 
 const gerencianet = new Gerencianet(options);
 
 gerencianet
-	.pixDevolution(params, body)
+	.createCarnet({}, body)
 	.then((resposta: Promise<any>) => {
 		console.log(resposta);
 	})

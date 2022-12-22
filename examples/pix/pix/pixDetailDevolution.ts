@@ -1,21 +1,19 @@
 /* eslint-disable import/extensions */
-/* eslint-disable import/no-unresolved */
 import Gerencianet from 'gn-api-sdk-typescript';
-import options from '../../config';
+import options from '../../credentials';
 
 const params = {
-    e2eId: 'E18236120202104191813s0326120V4K',
-    id: '607dc88bb83bf',
+	e2eId: 'E18236120202104191813s0326120V4K',
+	id: '607dc88bb83bf',
 };
 
-const gerencianet = Gerencianet(options);
+const gerencianet = new Gerencianet(options);
 
 gerencianet
-    .pixDetailDevolution(params)
-    .then((resposta: any) => {
-        console.log(resposta);
-    })
-    .catch((error: any) => {
-        console.log(error);
-    })
-    .done();
+	.pixDetailDevolution(params)
+	.then((resposta: Promise<any>) => {
+		console.log(resposta);
+	})
+	.catch((error: Promise<any>) => {
+		console.log(error);
+	});

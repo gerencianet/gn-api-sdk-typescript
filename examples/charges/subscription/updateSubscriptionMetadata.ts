@@ -2,19 +2,19 @@
 import Gerencianet from 'gn-api-sdk-typescript';
 import options from '../../credentials';
 
-const body = {
-	valor: '7.89',
+const params = {
+	id: 1009,
 };
 
-const params = {
-	e2eId: 'E18236120202104191813s0326120V4K',
-	id: '101',
+const body = {
+	notification_url: 'http://yourdomain.com',
+	custom_id: 'my_new_id',
 };
 
 const gerencianet = new Gerencianet(options);
 
 gerencianet
-	.pixDevolution(params, body)
+	.updateSubscriptionMetadata(params, body)
 	.then((resposta: Promise<any>) => {
 		console.log(resposta);
 	})
