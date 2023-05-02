@@ -6,3 +6,5 @@ package.json
 README.md
 tsconfig.json
 jest.config.js
+*.p12
+*.pem

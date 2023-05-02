@@ -7,6 +7,7 @@ export interface GnConfig {
 	client_id: string;
 	client_secret: string;
 	certificate?: PathLike | string;
+	pemKey?: PathLike | string;
 	sandbox: boolean;
 	partnerToken?: string;
 	rawResponse?: any;

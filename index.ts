@@ -21,6 +21,10 @@ class Gerencianet {
 			sandbox: options.sandbox,
 		};
 
+		if(options.pemKey){
+			credentials.pemKey = options.pemKey
+		}
+
 		const methods = {};
 		Object.keys(constants.APIS).forEach((endpoint) => {
 			const key = endpoint as keyof typeof constants.APIS;

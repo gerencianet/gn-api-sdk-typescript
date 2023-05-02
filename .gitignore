@@ -1,5 +1,6 @@
 node_modules
 *.p12
+*.pem
 simulaMod.ts
 teste.ts
 npm-debug.log

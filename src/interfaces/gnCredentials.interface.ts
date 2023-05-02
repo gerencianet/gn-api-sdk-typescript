@@ -7,6 +7,7 @@ export interface GnCredentials {
 	certificate?: PathLike | string;
 	pix_cert?: PathLike | string;
 	pathCert?: PathLike | string;
+	pemKey?: PathLike | string;
 	sandbox: boolean;
 	validateMtls?: boolean;
 	partnerToken?: string;
